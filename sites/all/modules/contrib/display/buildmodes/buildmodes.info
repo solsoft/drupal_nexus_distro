@@ -1,0 +1,11 @@
+name = Build modes
+description = Allows user to define new build modes for nodes
+package = Content
+core = 6.x
+dependencies[] = content
+; Information added by drupal.org packaging script on 2011-05-26
+version = "6.x-1.0-beta1"
+core = "6.x"
+project = "buildmodes"
+datestamp = "1306417314"
+

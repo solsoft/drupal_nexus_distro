@@ -1,7 +1,7 @@
 
-This theme is a direct backport of the Drupal 7 core admin theme "Seven".
+This theme is just a backport of the Drupal 7 admin theme (designed by Mark and Leisa).
 
-Only small changes have been made for core API and markup compatibility.
+The only changes are small API changes between Drupal 6 and 7 for compatibility.
 
-Please report any issues at http://drupal.org/project/issues/seven.
+Please post any issues to the issue queue at http://drupal.org/project/issues/seven
 

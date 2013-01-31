@@ -14,7 +14,7 @@ function seven_preprocess_page(&$vars) {
 function seven_node_add_list($content) {
   $output = '';
   if ($content) {
-    $output = '<ul class="admin-list">';
+    $output = '<ul class="node-type-list">';
     foreach ($content as $item) {
       $output .= '<li class="clearfix">';
       $output .= '<span class="label">' . l($item['title'], $item['href'], $item['localized_options']) . '</span>';
@@ -23,16 +23,13 @@ function seven_node_add_list($content) {
     }
     $output .= '</ul>';
   }
-  else {
-    $output = '<p>' . t('You have not created any content types yet. Go to the <a href="@create-content">content type creation page</a> to add a new content type.', array('@create-content' => url('admin/structure/types/add'))) . '</p>';
-  }
   return $output;
 }
 
 /**
- * Overrides theme_admin_block_content().
+ * Override of theme_admin_block_content().
  *
- * Use unordered list markup in both compact and extended mode.
+ * Use unordered list markup in both compact and extended move.
  */
 function seven_admin_block_content($content) {
   $output = '';
@@ -41,7 +38,7 @@ function seven_admin_block_content($content) {
     foreach ($content as $item) {
       $output .= '<li class="leaf">';
       $output .= l($item['title'], $item['href'], $item['localized_options']);
-      if (isset($item['description']) && !system_admin_compact_mode()) {
+      if (!system_admin_compact_mode()) {
         $output .= '<div class="description">' . filter_xss_admin($item['description']) . '</div>';
       }
       $output .= '</li>';
@@ -59,10 +56,9 @@ function seven_admin_block_content($content) {
 function seven_tablesort_indicator($style) {
   $theme_path = drupal_get_path('theme', 'seven');
   if ($style == 'asc') {
-    return theme('image', $theme_path . '/images/arrow-asc.png', t('sort ascending'), t('sort ascending'));
-  }
-  else {
-    return theme('image', $theme_path . '/images/arrow-desc.png', t('sort descending'), t('sort descending'));
+    return theme('image', $theme_path . '/images/arrow-asc.png');
+  } else {
+    return theme('image', $theme_path . '/images/arrow-desc.png');
   }
 }
 
